@@ -14,10 +14,11 @@ namespace Rocket.Controllers
         [SerializeField] float _force = 55f;
 
         DefaultInput _input;
-        private Mover _mover;
-        private Rotator _rotator;
+        Mover _mover;
+        Rotator _rotator;
+        Fuel _fuel;
 
-        bool _isForceUp;
+        bool _canForceUp;
         float _leftRight;
 
         public float TurnSpeed => _turnSpeed;
@@ -28,26 +29,29 @@ namespace Rocket.Controllers
             _input = new DefaultInput();
             _mover = new Mover(this);
             _rotator = new Rotator(this);
+            _fuel = GetComponent<Fuel>();
         }
         
         void Update()
         {
-            if (_input.IsForceUp)
+            if (_input.IsForceUp && !_fuel.isEmpty)
             {
-                _isForceUp= true;
+                _canForceUp= true;
             }
             else
             {
-                _isForceUp = false;
+                _canForceUp = false;
+                _fuel.FuelIncrease(0.01f);
             }  
             _leftRight= _input.LeftRight;
             
         }
         private void FixedUpdate()
         {
-            if (_isForceUp)
+            if (_canForceUp)
             {
                _mover.FixedTick();
+                _fuel.FuelDecrease(0.2f);
             }
 
             _rotator.FixedTick(_leftRight);
