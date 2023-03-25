@@ -24,6 +24,8 @@ namespace Rocket.Controllers
             {
                 _finishLights.SetActive(true);
                 _finishFireWorksLights.SetActive(true);
+                player.CantMoveOnLevelFinish();
+                GameManager.Instance.MissionSucced();
             }
             else
             {

@@ -43,11 +43,13 @@ namespace Rocket.Controllers
         private void OnEnable()
         {
             GameManager.Instance.OnGameOver += HandleOnEventTriggered;
+            GameManager.Instance.OnMissionSucced += HandleOnEventTriggered;
         }
 
         private void OnDisable()
         {
             GameManager.Instance.OnGameOver -= HandleOnEventTriggered;
+            GameManager.Instance.OnMissionSucced -= HandleOnEventTriggered;
         }
 
         void Update()
@@ -86,6 +88,13 @@ namespace Rocket.Controllers
             _canForceUp= false;
             _leftRight= 0f;
             _fuel.FuelIncrease(0f);
+        }
+        public void CantMoveOnLevelFinish()
+        {
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            rb.isKinematic = true;
+
         }
     }
 }
