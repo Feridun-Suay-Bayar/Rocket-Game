@@ -1,5 +1,7 @@
 using Rocket.Inputs;
+using Rocket.Managers;
 using Rocket.Movements;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -18,6 +20,7 @@ namespace Rocket.Controllers
         Rotator _rotator;
         Fuel _fuel;
 
+        bool _canMove;
         bool _canForceUp;
         float _leftRight;
 
@@ -31,9 +34,28 @@ namespace Rocket.Controllers
             _rotator = new Rotator(this);
             _fuel = GetComponent<Fuel>();
         }
-        
+
+        private void Start()
+        {
+            _canMove = true;
+        }
+
+        private void OnEnable()
+        {
+            GameManager.Instance.OnGameOver += HandleOnEventTriggered;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.OnGameOver -= HandleOnEventTriggered;
+        }
+
         void Update()
         {
+            if (!_canMove)
+            {
+                return;
+            }
             if (_input.IsForceUp && !_fuel.isEmpty)
             {
                 _canForceUp= true;
@@ -55,6 +77,15 @@ namespace Rocket.Controllers
             }
 
             _rotator.FixedTick(_leftRight);
+        }
+
+        
+        private void HandleOnEventTriggered()
+        {
+            _canMove= false;
+            _canForceUp= false;
+            _leftRight= 0f;
+            _fuel.FuelIncrease(0f);
         }
     }
 }

@@ -1,3 +1,4 @@
+using Rocket.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Rocket.Controllers
             PlayerController playerController = collision.collider.GetComponent<PlayerController>();
             if(playerController != null)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameManager.Instance.GameOver();
             }
         }
     }
