@@ -11,6 +11,7 @@ namespace Rocket.Movements
         [SerializeField] ParticleSystem _particle;
 
         public bool isEmpty => _currentFuel < 1f;
+        public float CurrentFuel => _currentFuel / _maxFuel;
 
         private void Awake()
         {
