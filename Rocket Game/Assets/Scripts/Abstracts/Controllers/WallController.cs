@@ -1,12 +1,13 @@
+using Rocket.Controllers;
 using Rocket.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Rocket.Controllers
+namespace Rocket.Abstracts.Controllers
 {
-    public class WallController : MonoBehaviour
+    public abstract class WallController : MonoBehaviour
     {
         private void OnCollisionEnter(Collision collision)
         {

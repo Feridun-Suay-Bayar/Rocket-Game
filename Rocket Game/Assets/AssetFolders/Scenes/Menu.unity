@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 847352609, guid: 69943962ed65d214e83bdd730f622ff6, type: 3}
+      propertyPath: m_text
+      value: Yes
+      objectReference: {fileID: 0}
     - target: {fileID: 2792345549264213889, guid: 69943962ed65d214e83bdd730f622ff6, type: 3}
       propertyPath: m_Name
       value: MainCanvas Variant
