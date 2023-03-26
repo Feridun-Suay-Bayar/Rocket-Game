@@ -11,7 +11,8 @@ namespace Rocket.Controllers
         private void OnCollisionEnter(Collision collision)
         {
             PlayerController playerController = collision.collider.GetComponent<PlayerController>();
-            if(playerController != null)
+
+            if(playerController != null && playerController.CanMove)
             {
                 GameManager.Instance.GameOver();
             }
