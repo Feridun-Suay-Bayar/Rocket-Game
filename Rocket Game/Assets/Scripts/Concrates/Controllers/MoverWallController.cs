@@ -10,8 +10,10 @@ namespace Rocket.Controllers
         [SerializeField] Vector3 _direction;
         [Range(0,1)]
         [SerializeField] float _factor;
+        [SerializeField] float _speed;
 
         Vector3 startPosition;
+        private const float FULL_CYCLE = Mathf.PI * 2f;
 
         private void Awake()
         {
@@ -20,6 +22,11 @@ namespace Rocket.Controllers
 
         private void Update()
         {
+            float cycle = Time.time / _speed;
+            float sinWave = Mathf.Sin(cycle * FULL_CYCLE);
+
+            _factor = Mathf.Abs(sinWave);
+
             Vector3 offset = _direction * _factor;
             transform.position = startPosition + offset;
         }

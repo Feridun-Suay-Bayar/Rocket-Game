@@ -20,16 +20,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.94
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.21241665
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37,15 +41,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2722543843866636791, guid: 2e5b3a4bb62c12043b747b8aff73fdeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -81,3 +85,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 0}
   _factor: 0
+  _speed: 0
+--- !u!114 &378914894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896233500128882662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27586bd68d267747848f43c4eafbd56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _direction: {x: 0, y: 0, z: 5}
+  _factor: 0
+  _speed: 15
