@@ -8,10 +8,9 @@ namespace Rocket.Controllers
     public class MoverWallController : WallController
     {
         [SerializeField] Vector3 _direction;
-        [Range(0,1)]
-        [SerializeField] float _factor;
         [SerializeField] float _speed;
 
+        float _factor;
         Vector3 startPosition;
         private const float FULL_CYCLE = Mathf.PI * 2f;
 
@@ -25,7 +24,9 @@ namespace Rocket.Controllers
             float cycle = Time.time / _speed;
             float sinWave = Mathf.Sin(cycle * FULL_CYCLE);
 
-            _factor = Mathf.Abs(sinWave);
+            //_factor = Mathf.Abs(sinWave);
+
+            _factor = sinWave / 2f + 0.5f;
 
             Vector3 offset = _direction * _factor;
             transform.position = startPosition + offset;
