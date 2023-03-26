@@ -1,3 +1,4 @@
+using Rocket.Abstracts.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,28 +7,14 @@ using UnityEngine.SceneManagement;
 
 namespace Rocket.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : SingletonThisObject<GameManager>
     {
         public event Action OnGameOver;
         public event Action OnMissionSucced;
-        public static GameManager Instance { get; private set; }
 
         private void Awake()
         {
-            MakeThisGameObjectSingleton();
-        }
-
-        private void MakeThisGameObjectSingleton()
-        {
-            if(Instance == null)
-            {
-                Instance= this;
-                DontDestroyOnLoad(this.gameObject);
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+            MakeThisGameObjectSingleton(this);
         }
 
         public void GameOver()
@@ -51,15 +38,19 @@ namespace Rocket.Managers
         }
         private IEnumerator LoadLevelSceneAsync(int levelIndex)
         {
+            SoundManager.Instance.StopSound(1);
             yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + levelIndex);
+            SoundManager.Instance.PlaySound(2);
         }
         public void LoadMenuScene()
-        {
+        { 
             StartCoroutine(LoadMenuSceneAsync());
         }
         private IEnumerator LoadMenuSceneAsync()
         {
+            SoundManager.Instance.StopSound(2);
             yield return SceneManager.LoadSceneAsync("Menu");
+            SoundManager.Instance.PlaySound(1);
         }
         public void Exit()
         {

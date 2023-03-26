@@ -1650,6 +1650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122183399988858894}
   - component: {fileID: 1067210862795248087}
+  - component: {fileID: 1782349669}
   m_Layer: 5
   m_Name: FuelSlider
   m_TagString: Untagged
@@ -1731,6 +1732,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1782349669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576164417930897153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df40ace52c72dd74b8a26bb8fe308597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7726803961501408870
 GameObject:
   m_ObjectHideFlags: 0
